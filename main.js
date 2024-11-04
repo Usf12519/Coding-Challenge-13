@@ -16,3 +16,21 @@ fetch(`https://www.course-api.com/javascript-store-products`)
         const productlist = document.getElementById(`productlist`);
         productlist.innerHTML = `<p>Unable to load products. Please try again later.<p>`;
     })
+
+    // Task 4: Handle Errors Gracefully
+    fetch(`https://www.course-api.com/javascript-store-products`)
+    .then(response => {
+        if (!response.ok) {
+            throw new error(`failed to fetch data: ` + response.statusText);
+        }
+        return.response.json(); 
+    })
+    .then(data => {
+        const productlist = document.getElementById(`productlist`);
+
+    })
+    .catch(error => {
+        consolelog.error(`Error:` , error);
+        const productlist = document.getElementById(`productlist`);
+        productlist.innerHTML = `<p>Unable to load products. Please try again later.<p>`;
+
